@@ -1,7 +1,9 @@
 plugins {
     id 'com.android.application'
     id 'kotlin-android'
+    //注解处理器插件,可替换我们java中annotationProcessor
     id 'kotlin-kapt'
+    //Parcelable序列化
     id 'kotlin-parcelize'
 }
 //@Parcelize的使用
@@ -17,17 +19,17 @@ android {
         versionName "1.0"
 
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
-        //Arouter使用
+        //ARouter java开发环境下使用
 //        javaCompileOptions {
 //            annotationProcessorOptions {
 //                arguments = [AROUTER_MODULE_NAME: project.getName()]
 //            }
 //        }
 
+        //ARouter Kotlin开发环境下使用
         kapt {
             arguments {
                 arg("AROUTER_MODULE_NAME", project.getName())
-//                arg("AROUTER_GENERATE_DOC", "enable")
             }
         }
     }

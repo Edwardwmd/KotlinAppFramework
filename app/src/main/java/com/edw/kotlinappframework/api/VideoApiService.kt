@@ -1,7 +1,6 @@
-package com.edw.kotlinappframework
+package com.edw.kotlinappframework.api
 
 import com.edw.kotlinappframework.bean.TodayVideoBean
-import com.edw.kotlinappframework.utils.Api
 import io.reactivex.rxjava3.core.Observable
 import retrofit2.Call
 import retrofit2.http.POST

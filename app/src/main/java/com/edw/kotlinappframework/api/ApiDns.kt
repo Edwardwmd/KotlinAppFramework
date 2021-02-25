@@ -1,4 +1,4 @@
-package com.edw.kotlinappframework.utils
+package com.edw.kotlinappframework.api
 
 import android.util.Log
 import okhttp3.Dns

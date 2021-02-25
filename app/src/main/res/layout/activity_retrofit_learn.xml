@@ -1,12 +1,28 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:orientation="vertical"
     tools:context="com.edw.kotlinappframework.ui.RetrofitLearnActivity">
-<TextView
-    android:id="@+id/tv_retrofit_show"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"/>
-</ScrollView>
+
+    <Button
+        android:text="@string/retrofit_okhttp_network"
+        android:id="@+id/btn_request"
+        android:layout_marginBottom="15dp"
+        android:layout_width="160dp"
+        android:layout_height="80dp"
+        android:layout_gravity="center"
+        android:gravity="center" />
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <TextView
+            android:visibility="gone"
+            android:id="@+id/tv_retrofit_show"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+    </ScrollView>
+</LinearLayout>

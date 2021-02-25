@@ -10,12 +10,15 @@ import com.edw.kotlinappframework.databinding.ActivityGlideShowBinding
 import com.edw.kotlinappframework.utils.DataManager
 
 class GlideShowActivity : AppCompatActivity() {
+
     private var vb: ActivityGlideShowBinding? = null
+    private var adapter: GlideShowAdapter? = null
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         vb = ActivityGlideShowBinding.inflate(layoutInflater)
         setContentView(vb!!.root)
-        val adapter = GlideShowAdapter(this, DataManager.glideItems)
+        adapter = GlideShowAdapter(this, DataManager.glideItems)
         vb!!.recyGlide.setHasFixedSize(true)
         vb!!.recyGlide.layoutManager = LinearLayoutManager(this)
         vb!!.recyGlide.adapter = adapter
@@ -25,5 +28,8 @@ class GlideShowActivity : AppCompatActivity() {
     override fun onDestroy() {
         super.onDestroy()
         if (vb != null) vb = null
+        if (adapter != null)
+            adapter!!.clearDatas()
+        adapter = null
     }
 }

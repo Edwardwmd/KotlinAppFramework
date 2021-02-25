@@ -11,15 +11,15 @@ import com.bumptech.glide.load.engine.DiskCacheStrategy
 import com.bumptech.glide.load.resource.bitmap.RoundedCorners
 
 import com.bumptech.glide.request.RequestOptions
-import com.edw.kotlinappframework.GlideApp
-import com.edw.kotlinappframework.MainActivity
+
 import com.edw.kotlinappframework.R
-import com.edw.kotlinappframework.VideoApiService
+import com.edw.kotlinappframework.api.VideoApiService
 import com.edw.kotlinappframework.databinding.ActivityRxjavaLearnBinding
 
 
-import com.edw.kotlinappframework.utils.Api
-import com.edw.kotlinappframework.utils.ApiDns
+import com.edw.kotlinappframework.api.Api
+import com.edw.kotlinappframework.api.ApiDns
+import com.edw.kotlinappframework.ui.weight.GlideApp
 import com.edw.kotlinappframework.utils.RxUtils
 import com.google.android.material.snackbar.Snackbar
 import io.reactivex.rxjava3.android.schedulers.AndroidSchedulers

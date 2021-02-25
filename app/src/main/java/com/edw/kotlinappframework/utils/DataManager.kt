@@ -11,7 +11,7 @@ import com.edw.kotlinappframework.bean.GlideItem
  * Desc: File Information!
  */
 object DataManager {
-    val buttonDatas = listOf(
+    val buttonDatas = mutableListOf(
         ButtonData("#ff00cc", "glide图片加载"),
         ButtonData("#cc00cc", "Retrofit网络请求"),
         ButtonData("#9900cc", "Rxjava简单使用"),
@@ -33,7 +33,7 @@ object DataManager {
         ButtonData("#00868B", "glide图片加载"),
 
         )
-    val glideItems = listOf(
+    val glideItems = mutableListOf(
         GlideItem(ConstantUtil.PIC_URL, "标准模式"),
         GlideItem(ConstantUtil.PIC_URL, "全圆角模式"),
         GlideItem(ConstantUtil.PIC_URL1, "占位符模式"),

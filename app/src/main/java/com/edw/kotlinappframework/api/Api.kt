@@ -1,4 +1,4 @@
-package com.edw.kotlinappframework.utils
+package com.edw.kotlinappframework.api
 
 /**
  * Author: EdwardWMD
@@ -8,7 +8,11 @@ package com.edw.kotlinappframework.utils
  * Desc: Api类:接口地址常量类
  */
 object Api {
+    //Host
     const val HOSTNAME = "api.apiopen.top"
+    //主机地址
     const val BASE_URL = """https://$HOSTNAME/"""
+    //api关键字段todayVideo
     const val TODAYVIDEO_URL = "todayVideo"
+
 }

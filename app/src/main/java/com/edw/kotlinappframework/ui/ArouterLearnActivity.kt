@@ -23,7 +23,7 @@ class ArouterLearnActivity : AppCompatActivity() {
             ARouter
                 .getInstance()
                 .build(ConstantUtil.MAIN_ACTIVITY_URI)
-                .withParcelable("GLE", ARouterTestBean("张三丰", 149, "太极创始人"))//传值
+                .withParcelable(ConstantUtil.MAIN_DATA_KEY, ARouterTestBean("张三丰", 149, "太极拳创始人!!!"))//传值
                 .navigation()
         }
 
@@ -32,8 +32,10 @@ class ArouterLearnActivity : AppCompatActivity() {
             ARouter
                 .getInstance()
                 .build(ConstantUtil.TEST_ACTIVITY_URI)
-                .withParcelable("GLE", ARouterTestBean("杨过", 38, "黯然销魂掌"))
+                .withInt(ConstantUtil.TEST_POSITION,1000)
+                .withParcelable(ConstantUtil.TEST_DATA_KEY_1, ARouterTestBean("杨过", 38, "黯然销魂掌开山鼻祖^_^"))
                 .navigation()
+
         }
     }
 }

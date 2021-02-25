@@ -19,7 +19,7 @@ import com.edw.kotlinappframework.bean.ButtonData
  * Website: https://github.com/Edwardwmd
  * Desc: File Information!
  */
-class MainAdapter(private val buttonDatas: List<ButtonData>) :
+class MainAdapter(private val buttonDatas: MutableList<ButtonData>?) :
     RecyclerView.Adapter<MainAdapter.MainViewHolder>() {
     private var onItemClickListener: OnItemClickListener? = null
 
@@ -28,28 +28,32 @@ class MainAdapter(private val buttonDatas: List<ButtonData>) :
         val tvItemName: TextView = itemView.findViewById(R.id.tv_item_name)
     }
 
+    fun cleanData() {
+        buttonDatas!!.clear()
+        notifyDataSetChanged()
+    }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): MainViewHolder {
         val view = LayoutInflater.from(parent.context).inflate(R.layout.item_main, parent, false)
         val mainViewHolder = MainViewHolder(view)
         mainViewHolder.itemView.setOnClickListener {
-            onItemClickListener?.onItemClick(it,mainViewHolder.adapterPosition)
+            onItemClickListener!!.onItemClick(it, mainViewHolder.adapterPosition)
         }
         return mainViewHolder
     }
 
     override fun onBindViewHolder(holder: MainViewHolder, position: Int) {
-        holder.cvItem.setCardBackgroundColor(Color.parseColor(buttonDatas[position].color))
+        holder.cvItem.setCardBackgroundColor(Color.parseColor(buttonDatas!![position].color))
         holder.tvItemName.text = buttonDatas[position].name
 
     }
 
     override fun getItemCount(): Int {
-        return if (buttonDatas.isEmpty()) 0 else buttonDatas.size
+        return if (buttonDatas!!.isEmpty()) 0 else buttonDatas.size
     }
 
     interface OnItemClickListener {
-        fun onItemClick(itemView: View,position: Int)
+        fun onItemClick(itemView: View, position: Int)
     }
 
     fun setOnItemClickListener(onItemClickListener: OnItemClickListener) {

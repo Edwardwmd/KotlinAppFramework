@@ -11,17 +11,23 @@ import com.bumptech.glide.Glide
 import com.bumptech.glide.load.engine.DiskCacheStrategy
 import com.bumptech.glide.load.resource.bitmap.RoundedCorners
 import com.bumptech.glide.request.RequestOptions
-import com.edw.kotlinappframework.GlideApp
+
 import com.edw.kotlinappframework.R
 
 
 import com.edw.kotlinappframework.bean.GlideItem
+import com.edw.kotlinappframework.ui.weight.GlideApp
 
-class GlideShowAdapter(private val mC: Context, private val glideItems: List<GlideItem>) :
+class GlideShowAdapter(private val mC: Context, private val glideItems: MutableList<GlideItem>) :
     RecyclerView.Adapter<GlideShowAdapter.GlideShowViewHolder>() {
     inner class GlideShowViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
         val ivGlide: ImageView = itemView.findViewById(R.id.iv_glide)
         val tvGlide: TextView = itemView.findViewById(R.id.tv_glide)
+    }
+
+    fun clearDatas() {
+        glideItems.clear()
+        notifyDataSetChanged()
     }
 
     override fun onCreateViewHolder(
@@ -31,6 +37,7 @@ class GlideShowAdapter(private val mC: Context, private val glideItems: List<Gli
         val view = LayoutInflater.from(parent.context).inflate(R.layout.item_glide, parent, false)
         return GlideShowViewHolder(view)
     }
+
 
     override fun onBindViewHolder(holder: GlideShowViewHolder, position: Int) {
         holder.tvGlide.text = glideItems[position].desc
