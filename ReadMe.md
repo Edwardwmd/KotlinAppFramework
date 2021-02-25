@@ -27,11 +27,11 @@
 
 1、项目中涉及到的框架如下:
 
-![](I:%5CAndroid_Dev_Projects%5CKotlinAppFramework%5CPic%5CAndroid%20Kotlin%E5%BC%80%E5%8F%91%E6%A1%86%E6%9E%B6%E5%AD%A6%E4%B9%A0.png)
+![](https://github.com/Edwardwmd/KotlinAppFramework/blob/master/Pic/Android%20Kotlin%E5%BC%80%E5%8F%91%E6%A1%86%E6%9E%B6%E5%AD%A6%E4%B9%A0.png?raw=true)
 
 2、项目演示：
 
-![](I:%5CAndroid_Dev_Projects%5CKotlinAppFramework%5CPic%5Cinputbuttonview%20%E6%93%8D%E4%BD%9C%E7%A4%BA%E6%84%8F%E5%9B%BE.gif)
+![](https://github.com/Edwardwmd/KotlinAppFramework/blob/master/Pic/inputbuttonview%20%E6%93%8D%E4%BD%9C%E7%A4%BA%E6%84%8F%E5%9B%BE.gif?raw=true)
 
 
 
