@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.edw.kotlinappframework">
+
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+
+    <application
+        android:name="com.edw.kotlinappframework.App"
+        android:allowBackup="true"
+        android:icon="@mipmap/logoko"
+        android:label="@string/app_name"
+        android:roundIcon="@mipmap/logoko"
+        android:supportsRtl="true"
+        android:theme="@style/Theme.KotlinUseDev"
+        android:usesCleartextTraffic="true">
+        <activity
+            android:name="com.edw.kotlinappframework.ui.EventBusLearnActivity"
+            android:launchMode="singleTask" />
+        <activity
+            android:name="com.edw.kotlinappframework.ui.TestActivity"
+            android:launchMode="singleTask" />
+        <activity
+            android:name="com.edw.kotlinappframework.ui.ArouterLearnActivity"
+            android:launchMode="singleTask" />
+        <activity
+            android:name="com.edw.kotlinappframework.ui.RxjavaLearnActivity"
+            android:launchMode="singleTask" />
+        <activity
+            android:name="com.edw.kotlinappframework.ui.RetrofitLearnActivity"
+            android:launchMode="singleTask" />
+        <activity
+            android:name="com.edw.kotlinappframework.MainActivity"
+            android:launchMode="singleTask">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name="com.edw.kotlinappframework.ui.GlideShowActivity"
+            android:launchMode="singleTask" />
+    </application>
+
+</manifest>

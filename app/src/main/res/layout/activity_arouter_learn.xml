@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.edw.kotlinappframework.ui.ArouterLearnActivity">
+
+    <Button
+        android:id="@+id/btn_arouter_turn"
+        android:layout_width="160dp"
+        android:layout_height="80dp"
+        android:text="Arouter实现页面传值跳转(动态代码实现)"
+        android:textSize="12sp"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/btn_arouter_url_turn"
+        android:layout_width="160dp"
+        android:layout_height="80dp"
+        android:text="Arouter实现页面传值跳转(通过注解)"
+        android:textSize="12sp"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/btn_arouter_turn" />
+</androidx.constraintlayout.widget.ConstraintLayout>
