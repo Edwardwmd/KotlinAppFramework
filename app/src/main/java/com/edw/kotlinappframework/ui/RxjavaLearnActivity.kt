@@ -47,22 +47,24 @@ class RxjavaLearnActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         vb = ActivityRxjavaLearnBinding.inflate(layoutInflater)
-        setContentView(vb!!.root)
-        //倒计时跳转
-        vb!!.btnRxturn.setOnClickListener { rxCountdown() }
-        //延时跳转
-        vb!!.btnRxdelay.setOnClickListener { rxDelayToTurn() }
-        //线程切换
-        vb!!.btnThreadChange.setOnClickListener { rxThreadLearn() }
-        //结合Rxjava的防抖动点击事件
-        vb!!.btnAntiShake.setOnShakeProofClickListener {
-            Snackbar.make(it, "防抖动点击:${sum++}", 200).show()
+        vb?.let {
+            setContentView(it.root)
+            //倒计时跳转
+            it.btnRxturn.setOnClickListener { rxCountdown() }
+            //延时跳转
+            it.btnRxdelay.setOnClickListener { rxDelayToTurn() }
+            //线程切换
+            it.btnThreadChange.setOnClickListener { rxThreadLearn() }
+            //结合Rxjava的防抖动点击事件
+            it.btnAntiShake.setOnShakeProofClickListener {
+                Snackbar.make(it, "防抖动点击:${sum++}", 200).show()
+            }
+            //与Retrofit结合的网络请求
+            subscribe = RxUtils
+                .setViewClickOnSubscribe(it.btnRxretrofit)
+                .throttleFirst(1, TimeUnit.SECONDS)
+                .subscribe { rxRetrofitNetwork() }
         }
-        //与Retrofit结合的网络请求
-        subscribe = RxUtils
-            .setViewClickOnSubscribe(vb!!.btnRxretrofit)
-            .throttleFirst(1, TimeUnit.SECONDS)
-            .subscribe { rxRetrofitNetwork() }
     }
 
     /**
@@ -145,10 +147,11 @@ class RxjavaLearnActivity : AppCompatActivity() {
         }.subscribeOn(Schedulers.io())//线程切换(子线程),上游数据操作在子线程执行
             .observeOn(AndroidSchedulers.mainThread())//线程切换(主线程),下游数据获取数据展示在主线程执行
             .subscribe {
-                vb!!.tvShowThread.visibility = View.VISIBLE
-                vb!!.tvShowThread.text =
-                    "${upstream} ; 下游的线程为:${Thread.currentThread().id},  下游线程是否为主线程:${isMainThread()}, 下游接受的数据:${it}"
-
+                vb?.let {
+                    it.tvShowThread.visibility = View.VISIBLE
+                    it.tvShowThread.text =
+                        "${upstream} ; 下游的线程为:${Thread.currentThread().id},  下游线程是否为主线程:${isMainThread()}, 下游接受的数据:${it}"
+                }
             }
 
 
@@ -192,11 +195,10 @@ class RxjavaLearnActivity : AppCompatActivity() {
     /**
      * 按钮防抖动点击事件,使用Kotlin的扩展函数实现
      */
-
-    private inline fun View.setOnShakeProofClickListener(
+    private fun View.setOnShakeProofClickListener(
         duration: Long = 1000,
         unit: TimeUnit = TimeUnit.MILLISECONDS,
-        crossinline listener: (v: View) -> Unit
+        listener: (v: View) -> Unit
     ): Disposable {
         return create(ObservableOnSubscribe<View> { emiter ->
             setOnClickListener {
@@ -205,9 +207,5 @@ class RxjavaLearnActivity : AppCompatActivity() {
         }).throttleFirst(duration, unit).subscribe {
             listener(it)
         }
-    }
-
-    fun Disposable.addTo(compositeDisposable: CompositeDisposable) {
-        compositeDisposable.add(this)
     }
 }

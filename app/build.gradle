@@ -97,4 +97,8 @@ dependencies {
 
     //EventBus
     api 'org.greenrobot:eventbus:3.2.0'
+
+    //Koin Kotlin依赖注入框架
+    api "org.koin:koin-core:$koin_version"
+    api "org.koin:koin-android:$koin_version"
 }

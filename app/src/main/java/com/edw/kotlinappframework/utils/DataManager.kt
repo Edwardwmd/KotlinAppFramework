@@ -17,7 +17,7 @@ object DataManager {
         ButtonData("#9900cc", "Rxjava简单使用"),
         ButtonData("#6600cc", "ARouter简单使用"),
         ButtonData("#3366cc", "EventBus简单使用"),
-        ButtonData("#FF34B3", "glide图片加载"),
+        ButtonData("#FF34B3", "Koin依赖注入"),
         ButtonData("#ff6600", "glide图片加载"),
         ButtonData("#cc6633", "glide图片加载"),
         ButtonData("#669933", "glide图片加载"),

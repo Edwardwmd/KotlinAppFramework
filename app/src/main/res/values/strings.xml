@@ -1,3 +1,5 @@
 <resources>
     <string name="app_name">KotlinAppFramework</string>
+    <string name="jump_PassValue">粘性事件传值poststicky</string>
+    <string name="retrofit_okhttp_network">使用Retrofit+okhttp请求网络</string>
 </resources>

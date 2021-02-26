@@ -37,31 +37,61 @@ class TestActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         vb = ActivityTestBinding.inflate(layoutInflater)
-        setContentView(vb!!.root)
         ARouter.getInstance().inject(this@TestActivity)
+        setContentView(vb!!.root)
         showTextInTest()
     }
 
+    override fun onStart() {
+        super.onStart()
+        EventBus.getDefault().register(this)
+    }
 
-
-    @SuppressLint("SetTextI18n")
-    fun showTextInTest() {
+    private fun showTextInTest() {
         when (position) {
-            1000 -> {
-                vb!!.tvTest.text =
-                    "我是${arouterBean!!.pName},现在${arouterBean!!.pAge},我是${arouterBean!!.pDesc}"
-                Log.e("AROUTER_Log", "已经输出结果")
-            }
+            1000 -> showText()
+            1001 -> showText()
+
         }
     }
 
+    @SuppressLint("SetTextI18n")
+    fun showText() {
+        vb?.apply {
+            with(arouterBean!!) {
+               tvTest.text = "我是$pName,现在$pAge,我是$pDesc"
+            }
+            Log.e("AROUTER_Log", "已经输出结果")
+        }
+    }
+
+    override fun onStop() {
+        super.onStop()
+        if (EventBus.getDefault().isRegistered(this))
+            EventBus.getDefault().unregister(this)
+
+    }
+
+    @SuppressLint("SetTextI18n")
+    @Subscribe(threadMode = ThreadMode.MAIN, sticky = true)
+    internal fun getEventBusData(event: EventMessageTest?) {
+        if (arouterBean == null) {
+            event?.let {
+                val aTb: ARouterTestBean = it.getMessage()!!
+                with(aTb) {
+                    vb!!.tvTest.text = "我是$pName,现在$pAge,我是$pDesc"
+                }
+                Log.e("EventBus_Log", "已经输出结果")
+            }
+        }
+    }
 
     override fun onDestroy() {
         super.onDestroy()
         if (vb != null)
             vb!!.tvTest.text = null
         vb = null
-        if (arouterBean!=null)
-            arouterBean=null
+        if (arouterBean != null)
+            arouterBean = null
     }
 }

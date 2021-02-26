@@ -1,12 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-    package="com.edw.kotlinappframework">
+    package="com.edw.kotlinappframework" >
 
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
-    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"
+    <uses-permission
+        android:name="android.permission.WRITE_EXTERNAL_STORAGE"
         tools:ignore="ScopedStorage" />
 
     <application
@@ -18,31 +19,33 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.KotlinUseDev"
         android:usesCleartextTraffic="true"
-        tools:targetApi="m">
+        tools:targetApi="m" >
+        <activity android:name=".ui.KoinLearnActivity" >
+        </activity>
         <activity
-            android:name="com.edw.kotlinappframework.ui.EventBusLearnActivity"
+            android:name=".ui.EventBusLearnActivity"
             android:launchMode="singleTask"
             android:screenOrientation="portrait" />
         <activity
-            android:name="com.edw.kotlinappframework.ui.TestActivity"
+            android:name=".ui.TestActivity"
             android:launchMode="singleTask"
             android:screenOrientation="portrait" />
         <activity
-            android:name="com.edw.kotlinappframework.ui.ArouterLearnActivity"
+            android:name=".ui.ArouterLearnActivity"
             android:launchMode="singleTask"
             android:screenOrientation="portrait" />
         <activity
-            android:name="com.edw.kotlinappframework.ui.RxjavaLearnActivity"
+            android:name=".ui.RxjavaLearnActivity"
             android:launchMode="singleTask"
             android:screenOrientation="portrait" />
         <activity
-            android:name="com.edw.kotlinappframework.ui.RetrofitLearnActivity"
+            android:name=".ui.RetrofitLearnActivity"
             android:launchMode="singleTask"
             android:screenOrientation="portrait" />
         <activity
-            android:name="com.edw.kotlinappframework.ui.MainActivity"
+            android:name=".ui.MainActivity"
             android:launchMode="singleTask"
-            android:screenOrientation="portrait">
+            android:screenOrientation="portrait" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -50,7 +53,7 @@
             </intent-filter>
         </activity>
         <activity
-            android:name="com.edw.kotlinappframework.ui.GlideShowActivity"
+            android:name=".ui.GlideShowActivity"
             android:launchMode="singleTask"
             android:screenOrientation="portrait" />
     </application>

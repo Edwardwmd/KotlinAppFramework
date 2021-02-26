@@ -43,8 +43,10 @@ class MainAdapter(private val buttonDatas: MutableList<ButtonData>?) :
     }
 
     override fun onBindViewHolder(holder: MainViewHolder, position: Int) {
-        holder.cvItem.setCardBackgroundColor(Color.parseColor(buttonDatas!![position].color))
-        holder.tvItemName.text = buttonDatas[position].name
+        buttonDatas!![position].apply{
+            holder.cvItem.setCardBackgroundColor(Color.parseColor(color))
+            holder.tvItemName.text = name
+        }
 
     }
 

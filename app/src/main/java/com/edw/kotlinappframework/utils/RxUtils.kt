@@ -11,7 +11,7 @@ import java.lang.NullPointerException
  * Data: 2021/2/22
  * Project: KotlinUseDev
  * Website: https://github.com/Edwardwmd
- * Desc: File Information!
+ * Desc: 按钮防抖动点击事件
  */
 object RxUtils {
     private fun <T> checkNull(value: T?) {

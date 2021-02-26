@@ -17,11 +17,13 @@ class GlideShowActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         vb = ActivityGlideShowBinding.inflate(layoutInflater)
-        setContentView(vb!!.root)
         adapter = GlideShowAdapter(this, DataManager.glideItems)
-        vb!!.recyGlide.setHasFixedSize(true)
-        vb!!.recyGlide.layoutManager = LinearLayoutManager(this)
-        vb!!.recyGlide.adapter = adapter
+        vb?.let {
+            setContentView(it.root)
+            it.recyGlide.setHasFixedSize(true)
+            it.recyGlide.layoutManager = LinearLayoutManager(this)
+            it.recyGlide.adapter = adapter
+        }
 
     }
 

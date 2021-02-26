@@ -25,4 +25,14 @@
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/btn_arouter_turn" />
+
+    <Button
+        android:id="@+id/btn_animated_parameter_jump"
+        android:layout_width="160dp"
+        android:layout_height="80dp"
+        android:layout_marginTop="15dp"
+        android:text="Arouter实现动画传参跳转"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/btn_arouter_url_turn" />
 </androidx.constraintlayout.widget.ConstraintLayout>

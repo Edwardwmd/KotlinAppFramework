@@ -9,6 +9,7 @@ import android.view.View
 import android.widget.Toast
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.alibaba.android.arouter.facade.annotation.Route
+import com.alibaba.android.arouter.launcher.ARouter
 import com.edw.kotlinappframework.adapter.MainAdapter
 import com.edw.kotlinappframework.bean.ARouterTestBean
 import com.edw.kotlinappframework.bean.EventMessageTest
@@ -33,30 +34,27 @@ class MainActivity : AppCompatActivity(), MainAdapter.OnItemClickListener {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         vb = ActivityMainBinding.inflate(layoutInflater)
-        setContentView(vb!!.root)
         adapter = MainAdapter(DataManager.buttonDatas)
-        vb!!.recy.setHasFixedSize(true)
-        vb!!.recy.layoutManager = LinearLayoutManager(this)
-        vb!!.recy.adapter = adapter
-        adapter!!.setOnItemClickListener(this)
+        vb?.apply {
+            setContentView(root)
+            recy.setHasFixedSize(true)
+            recy.layoutManager = LinearLayoutManager(this@MainActivity)
+            recy.adapter = adapter
+        }
+        adapter?.setOnItemClickListener(this)
 
     }
 
-    override fun onStart() {
-        super.onStart()
-        EventBus.getDefault().register(this)
-    }
 
     override fun onNewIntent(intent: Intent?) {
         super.onNewIntent(intent)
-
-        if (intent != null && intent.extras != null) {
+        intent?.apply {
             val data =
-                intent.extras?.getParcelable<ARouterTestBean>(ConstantUtil.MAIN_DATA_KEY) as ARouterTestBean
-            Snackbar.make(vb!!.root, "我是${data.pName},现在${data.pAge},我是${data.pDesc}", 1200).show()
+                extras!!.getParcelable<ARouterTestBean>(ConstantUtil.MAIN_DATA_KEY) as ARouterTestBean
+            with(data) {
+                Snackbar.make(vb!!.root, "我是$pName,现在$pAge,我是$pDesc", 1200).show()
+            }
         }
-
-
     }
 
 
@@ -68,28 +66,13 @@ class MainActivity : AppCompatActivity(), MainAdapter.OnItemClickListener {
             2 -> AppUtils.turnToActivity(this, RxjavaLearnActivity().javaClass)
             3 -> AppUtils.turnToActivity(this, ArouterLearnActivity().javaClass)
             4 -> AppUtils.turnToActivity(this, EventBusLearnActivity().javaClass)
+            5 -> ARouter.getInstance().build(ConstantUtil.KOIN_ACTIVITY_URI).navigation()
 
 
         }
 
     }
 
-    @SuppressLint("SetTextI18n")
-    @Subscribe(threadMode = ThreadMode.MAIN,sticky = true)
-    internal   fun getEventBusData(event: EventMessageTest) {
-        val aTb: ARouterTestBean = event.getMessage()!!
-        Toast.makeText(this, "我是${aTb.pName},现在${aTb.pAge},我是${aTb.pDesc}", Toast.LENGTH_SHORT)
-            .show()
-        Log.e("EventBus_Log", "已经输出结果")
-    }
-
-
-    override fun onStop() {
-        super.onStop()
-        if (EventBus.getDefault().isRegistered(this))
-            EventBus.getDefault().unregister(this)
-
-    }
 
     override fun onDestroy() {
         super.onDestroy()

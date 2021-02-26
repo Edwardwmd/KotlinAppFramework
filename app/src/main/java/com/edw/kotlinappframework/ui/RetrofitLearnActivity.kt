@@ -28,16 +28,15 @@ class RetrofitLearnActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         vb = ActivityRetrofitLearnBinding.inflate(layoutInflater)
-        setContentView(vb!!.root)
-        //使用防抖动点击
-        RxUtils
-            .setViewClickOnSubscribe(vb!!.btnRequest)
-            .observeOn(Schedulers.io())
-            .subscribeOn(AndroidSchedulers.mainThread())
-            .subscribe {
-                initData()
-            }
-
+        vb?.let {
+            setContentView(it.root)
+            //使用防抖动点击
+            RxUtils
+                .setViewClickOnSubscribe(it.btnRequest)
+                .observeOn(Schedulers.io())
+                .subscribeOn(AndroidSchedulers.mainThread())
+                .subscribe { initData() }
+        }
     }
 
     fun initData() {

@@ -18,8 +18,9 @@ class EventBusLearnActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         vb = ActivityEventBusLearnBinding.inflate(layoutInflater)
-        setContentView(vb?.root)
-        vb!!.btnEventbusTurn.setOnClickListener {
+        vb?.let {
+        setContentView(it.root)
+        it.btnEventbusTurn.setOnClickListener {
             EventBus.getDefault().postSticky(
                 EventMessageTest(ARouterTestBean(
                         "李小龙",
@@ -27,16 +28,8 @@ class EventBusLearnActivity : AppCompatActivity() {
                         "双截棍创始人!!!"
                     ))
             )
-//                MessageEvent().put(
-//                    ARouterTestBean(
-//                        "李小龙",
-//                        33,
-//                        "双截棍创始人!!!"
-//                    )
-//                )
-//            )
-//            ARouter.getInstance().build(ConstantUtil.TEST_ACTIVITY_URI).navigation()
-
+            ARouter.getInstance().build(ConstantUtil.TEST_ACTIVITY_URI).navigation()
+        }
         }
 
     }
