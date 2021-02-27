@@ -100,5 +100,10 @@ dependencies {
 
     //Koin Kotlin依赖注入框架
     api "org.koin:koin-core:$koin_version"
+    api "org.koin:koin-core-ext:$koin_version"
     api "org.koin:koin-android:$koin_version"
+    // Koin AndroidX ViewModel features
+    api "org.koin:koin-androidx-viewmodel:$koin_version"
+    // Koin AndroidX Fragment features
+    api "org.koin:koin-androidx-fragment:$koin_version"
 }
