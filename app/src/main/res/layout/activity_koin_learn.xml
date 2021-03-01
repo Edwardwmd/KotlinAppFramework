@@ -33,6 +33,14 @@
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/btn_multi_parameter_koin" />
+    <Button
+        android:id="@+id/btn_single_bind_koin"
+        android:layout_width="160dp"
+        android:layout_height="80dp"
+        android:text="Scope多个参数对象的依赖注入"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/btn_multi_scope_koin" />
 
     <TextView
         android:id="@+id/tv_koin_content"
@@ -44,6 +52,6 @@
         android:visibility="gone"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/btn_multi_scope_koin" />
+        app:layout_constraintTop_toBottomOf="@+id/btn_single_bind_koin" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

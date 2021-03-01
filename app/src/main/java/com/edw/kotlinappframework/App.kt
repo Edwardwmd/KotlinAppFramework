@@ -6,6 +6,7 @@ import dagger.hilt.android.HiltAndroidApp
 import org.koin.android.ext.koin.androidContext
 import org.koin.core.KoinApplication
 import org.koin.core.context.startKoin
+import javax.inject.Inject
 
 /**
  * Author: EdwardWMD
@@ -15,7 +16,7 @@ import org.koin.core.context.startKoin
  * Desc: File Information!
  */
 @HiltAndroidApp
-class App : Application() {
+class App @Inject constructor() : Application() {
     private val isDebug: Boolean = true
     private var koinApplication: KoinApplication? = null
 
@@ -32,6 +33,7 @@ class App : Application() {
             androidContext(this@App)
             modules(KoinModuleManager.instance.appMode)
         }
+        
     }
 
     private  fun initARouter() {

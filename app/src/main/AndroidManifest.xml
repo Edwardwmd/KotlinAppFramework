@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-    package="com.edw.kotlinappframework" >
+    package="com.edw.kotlinappframework">
 
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
@@ -19,9 +19,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.KotlinUseDev"
         android:usesCleartextTraffic="true"
-        tools:targetApi="m" >
-        <activity android:name=".ui.KoinLearnActivity" >
-        </activity>
+        tools:targetApi="m">
+        <activity android:name=".ui.HiltDaggerLearnActivity"></activity>
+        <activity android:name=".ui.KoinLearnActivity"></activity>
         <activity
             android:name=".ui.EventBusLearnActivity"
             android:launchMode="singleTask"
@@ -45,7 +45,7 @@
         <activity
             android:name=".ui.MainActivity"
             android:launchMode="singleTask"
-            android:screenOrientation="portrait" >
+            android:screenOrientation="portrait">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

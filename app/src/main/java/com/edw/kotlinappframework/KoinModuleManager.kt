@@ -1,13 +1,12 @@
 package com.edw.kotlinappframework
 
-import android.icu.text.Normalizer2
+import com.edw.kotlinappframework.api.KoinStudyService
+import com.edw.kotlinappframework.api.imp.KoinStudyServiceImp
 import com.edw.kotlinappframework.bean.KoinStudyBeanA
 import com.edw.kotlinappframework.bean.KoinStudyBeanB
 import com.edw.kotlinappframework.bean.KoinStudyBeanC
 import com.edw.kotlinappframework.ui.KoinLearnActivity
-import io.reactivex.rxjava3.schedulers.Schedulers.single
-import org.koin.core.qualifier.named
-import org.koin.core.scope.Scope
+import org.koin.dsl.bind
 import org.koin.dsl.module
 
 /**
@@ -36,16 +35,15 @@ class KoinModuleManager private constructor() {
         single { (content: String, num: Int) ->
             KoinStudyBeanB(content, num)
         }
-        //scope多个参数
+        //scope多个参数:在KoinLearnActivity依赖注入KoinStudyBeanC
         scope<KoinLearnActivity> {
             scoped { (n1: Int, n2: Int) ->
                 KoinStudyBeanC(n1, n2)
             }
         }
+        //通过sigle bind可以让KoinStudyServiceImp  和 KoinStudyService  绑定
+        single { KoinStudyServiceImp() } bind KoinStudyService::class
     }
 
-//    val bMode= module{
-//        single { (n1:Int,n2:Int) -> KoinStudyBeanC(n1,n2) }
-//    }
 
 }
