@@ -8,11 +8,14 @@ package com.edw.kotlinappframework.api
  * Desc: Api类:接口地址常量类
  */
 object Api {
-    //Host
-    const val HOSTNAME = "api.apiopen.top"
-    //主机地址
-    const val BASE_URL = """https://$HOSTNAME/"""
-    //api关键字段todayVideo
+    //Video Url
+    const val VIDEO_HOST = "api.apiopen.top"  //47.100.122.205
+    const val BASE_URL = "https://$VIDEO_HOST/"
     const val TODAYVIDEO_URL = "todayVideo"
+
+    //中国省份 Url
+    const val PROVINCE_HOST="guolin.tech"
+    const val PROVINCE_BASE_URL="http://guolin.tech/" //47.75.70.188
+    const val PROVINCE_URL="api/china"
 
 }

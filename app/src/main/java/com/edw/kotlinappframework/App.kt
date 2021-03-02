@@ -2,6 +2,7 @@ package com.edw.kotlinappframework
 
 import android.app.Application
 import com.alibaba.android.arouter.launcher.ARouter
+import com.edw.kotlinappframework.di.koin.KoinModuleManager
 import dagger.hilt.android.HiltAndroidApp
 import org.koin.android.ext.koin.androidContext
 import org.koin.core.KoinApplication
@@ -20,6 +21,7 @@ class App @Inject constructor() : Application() {
     private val isDebug: Boolean = true
     private var koinApplication: KoinApplication? = null
 
+
     override fun onCreate() {
         super.onCreate()
         //1.初始化ARouter
@@ -31,7 +33,7 @@ class App @Inject constructor() : Application() {
     private fun initKoin() {
         koinApplication = startKoin {
             androidContext(this@App)
-            modules(KoinModuleManager.instance.appMode)
+            modules(KoinModuleManager.instance.allAppMode)
         }
         
     }

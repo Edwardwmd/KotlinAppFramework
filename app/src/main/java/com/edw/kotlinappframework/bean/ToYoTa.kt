@@ -11,20 +11,21 @@ import javax.inject.Qualifier
  * Desc: File Information!
  */
 class ToYoTa @Inject
-constructor() : Car {
+constructor(val speed: Double, val distance: Double, private val char: String) : Car {
 
     override fun speedPerHour(): String {
-       return "最高时速:562公里/小时"
+        return "最高时速:${speed}公里/小时"
     }
 
     override fun drivenDistance(): String {
-       return "已行驶了125634.2公里!"
+        return "已行驶了${distance}公里!"
     }
 
-    fun carCharacteristics():String{
-        return "汉兰达,帝王的尊享!!"
+    fun carCharacteristics(): String {
+        return char
     }
 }
+
 @Qualifier
 @Retention(AnnotationRetention.BINARY)
 internal annotation class BindCar

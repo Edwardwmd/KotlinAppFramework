@@ -1,5 +1,6 @@
 package com.edw.kotlinappframework.ui
 
+
 import android.annotation.SuppressLint
 import android.content.Intent
 import android.os.Bundle
@@ -9,23 +10,18 @@ import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import com.bumptech.glide.load.engine.DiskCacheStrategy
 import com.bumptech.glide.load.resource.bitmap.RoundedCorners
-
 import com.bumptech.glide.request.RequestOptions
-
 import com.edw.kotlinappframework.R
-import com.edw.kotlinappframework.api.VideoApiService
-import com.edw.kotlinappframework.databinding.ActivityRxjavaLearnBinding
-
-
 import com.edw.kotlinappframework.api.Api
 import com.edw.kotlinappframework.api.ApiDns
+import com.edw.kotlinappframework.api.VideoApiService
+import com.edw.kotlinappframework.databinding.ActivityRxjavaLearnBinding
 import com.edw.kotlinappframework.ui.weight.GlideApp
 import com.edw.kotlinappframework.utils.RxUtils
 import com.google.android.material.snackbar.Snackbar
 import io.reactivex.rxjava3.android.schedulers.AndroidSchedulers
-import io.reactivex.rxjava3.core.*
 import io.reactivex.rxjava3.core.Observable.*
-import io.reactivex.rxjava3.disposables.CompositeDisposable
+import io.reactivex.rxjava3.core.ObservableOnSubscribe
 import io.reactivex.rxjava3.disposables.Disposable
 import io.reactivex.rxjava3.schedulers.Schedulers
 import okhttp3.OkHttpClient
@@ -78,7 +74,7 @@ class RxjavaLearnActivity : AppCompatActivity() {
             .connectTimeout(20, TimeUnit.SECONDS)//连接超时设置
             .readTimeout(20, TimeUnit.SECONDS)//读取超时
             .writeTimeout(20, TimeUnit.SECONDS)//写入超时
-            .dns(ApiDns.INSTANCE)//添加自定义DNS
+            .dns(ApiDns.genInstance("47.100.122.205",Api.VIDEO_HOST))//添加自定义DNS
             .build()
         //初始化Retrofit
         val retrofit = Retrofit

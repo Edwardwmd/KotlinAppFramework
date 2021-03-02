@@ -2,7 +2,6 @@ package com.edw.kotlinappframework.di.module
 
 import com.edw.kotlinappframework.adapter.HiltDaggerTestAdapter
 import com.edw.kotlinappframework.di.qualifier.ActivityScope
-import com.edw.kotlinappframework.utils.DataManager
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
@@ -17,11 +16,12 @@ import dagger.hilt.android.components.ActivityComponent
  */
 @Module
 @InstallIn(ActivityComponent::class)
-class ActivityModule {
+object ActivityModule {
+
     @ActivityScope
     @Provides
     fun provide(): HiltDaggerTestAdapter {
-        return HiltDaggerTestAdapter(DataManager.hiltDatas)
+        return HiltDaggerTestAdapter()
     }
 
 }

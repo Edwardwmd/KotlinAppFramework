@@ -18,17 +18,25 @@ import javax.inject.Inject
  * Desc: File Information!
  */
 
-class HiltDaggerTestAdapter @Inject constructor(private var hiltDaggerItems: MutableList<HiltItem>?) :
+class HiltDaggerTestAdapter @Inject constructor() :
     RecyclerView.Adapter<HiltDaggerTestAdapter.HiltDaggerViewHolder>() {
+    private var hiltDaggerItems: MutableList<HiltItem> = ArrayList()
 
     class HiltDaggerViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
         val tvText: TextView = itemView.findViewById(R.id.tv_hilt_adapter_show_item)
     }
 
+    fun setData(hiltDaggerItems: MutableList<HiltItem>) {
+        if (this.hiltDaggerItems.size <= 0) {
+        this.hiltDaggerItems = hiltDaggerItems
+        }
+    }
+
     fun cleanData() {
-        hiltDaggerItems!!.clear()
-        hiltDaggerItems = null
-        notifyDataSetChanged()
+        if (hiltDaggerItems.size > 0) {
+            hiltDaggerItems.clear()
+            notifyDataSetChanged()
+        }
     }
 
     override fun onCreateViewHolder(
