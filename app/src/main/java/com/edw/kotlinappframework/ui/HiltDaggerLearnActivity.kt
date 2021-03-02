@@ -12,7 +12,7 @@ import com.edw.kotlinappframework.adapter.HiltDaggerTestAdapter
 import com.edw.kotlinappframework.api.ProvinceApiService
 import com.edw.kotlinappframework.bean.ToYoTa
 import com.edw.kotlinappframework.databinding.ActivityHiltDaggerLearnBinding
-import com.edw.kotlinappframework.di.qualifier.ActivityScope
+import com.edw.kotlinappframework.di.hilt.qualifier.ActivityScope
 import com.edw.kotlinappframework.utils.ConstantUtil.HILT_DAGGER_ACTIVITY_URI
 import com.edw.kotlinappframework.utils.DataManager
 import dagger.hilt.android.AndroidEntryPoint

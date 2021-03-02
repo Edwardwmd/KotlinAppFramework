@@ -7,7 +7,7 @@ import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.isVisible
 import com.alibaba.android.arouter.facade.annotation.Route
-import com.edw.kotlinappframework.RetrofitClient
+import com.edw.kotlinappframework.net.RetrofitClient
 import com.edw.kotlinappframework.api.ProvinceApiService
 import com.edw.kotlinappframework.api.imp.KoinStudyServiceImp
 import com.edw.kotlinappframework.bean.KoinStudyBeanA

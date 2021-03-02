@@ -13,9 +13,9 @@ import com.bumptech.glide.load.resource.bitmap.RoundedCorners
 import com.bumptech.glide.request.RequestOptions
 import com.edw.kotlinappframework.R
 import com.edw.kotlinappframework.api.Api
-import com.edw.kotlinappframework.api.ApiDns
 import com.edw.kotlinappframework.api.VideoApiService
 import com.edw.kotlinappframework.databinding.ActivityRxjavaLearnBinding
+import com.edw.kotlinappframework.net.ApiDns
 import com.edw.kotlinappframework.ui.weight.GlideApp
 import com.edw.kotlinappframework.utils.RxUtils
 import com.google.android.material.snackbar.Snackbar
@@ -165,7 +165,6 @@ class RxjavaLearnActivity : AppCompatActivity() {
             .doOnNext { vb!!.btnRxturn.text = "倒计时:${3 - it}s" }
             .doOnComplete {
                 startActivity(Intent(this, MainActivity::class.java))
-                finish()
             }.subscribe()
 
     }

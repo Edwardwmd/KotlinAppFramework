@@ -20,8 +20,9 @@
         android:theme="@style/Theme.KotlinUseDev"
         android:usesCleartextTraffic="true"
         tools:targetApi="m">
-        <activity android:name=".ui.HiltDaggerLearnActivity"></activity>
-        <activity android:name=".ui.KoinLearnActivity"></activity>
+        <activity android:name=".ui.RoomDataBaseLearnActivity"></activity>
+        <activity android:name=".ui.HiltDaggerLearnActivity" />
+        <activity android:name=".ui.KoinLearnActivity" />
         <activity
             android:name=".ui.EventBusLearnActivity"
             android:launchMode="singleTask"

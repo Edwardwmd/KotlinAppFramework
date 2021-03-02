@@ -10,10 +10,41 @@
         android:id="@+id/btn_hilt_adapter"
         android:layout_width="160dp"
         android:layout_height="80dp"
-        android:text="使用Hilt依赖注入Adapter"
+        android:text="使用Hilt ActivityComponent依赖注入Adapter"
+        android:textAllCaps="false"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/btn_hilt_application"
+        android:layout_width="160dp"
+        android:layout_height="80dp"
+        android:text="使用Hilt SingletonComponent全局依赖注入对象"
+        android:textAllCaps="false"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/btn_hilt_adapter" />
+    <Button
+        android:id="@+id/btn_hilt_rx_retrofit"
+        android:layout_width="160dp"
+        android:layout_height="80dp"
+        android:text="使用Hilt全局Retrofit依赖注入"
+        android:textAllCaps="false"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/btn_hilt_application" />
+
+    <TextView
+        android:id="@+id/tv_show_hilt_content"
+        android:layout_width="match_parent"
+        android:layout_height="250dp"
+        android:layout_marginTop="15dp"
+        android:visibility="gone"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/btn_hilt_rx_retrofit" />
+
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recy_hilt"
@@ -23,6 +54,6 @@
         android:visibility="gone"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/btn_hilt_adapter" />
+        app:layout_constraintTop_toBottomOf="@+id/btn_hilt_rx_retrofit" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

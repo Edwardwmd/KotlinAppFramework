@@ -20,7 +20,7 @@ object DataManager {
         ButtonData("#3366cc", "EventBus简单使用"),
         ButtonData("#FF34B3", "Koin依赖注入"),
         ButtonData("#ff6600", "Hilt Dagger依赖注入"),
-        ButtonData("#cc6633", "glide图片加载"),
+        ButtonData("#cc6633", "Room数据库"),
         ButtonData("#669933", "glide图片加载"),
         ButtonData("#ffff33", "glide图片加载"),
         ButtonData("#FF4500", "glide图片加载"),

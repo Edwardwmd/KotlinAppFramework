@@ -41,10 +41,12 @@ class MainActivity : AppCompatActivity(), MainAdapter.OnItemClickListener {
     override fun onNewIntent(intent: Intent?) {
         super.onNewIntent(intent)
         intent?.apply {
+            extras?.apply {
             val data =
-                extras!!.getParcelable<ARouterTestBean>(ConstantUtil.MAIN_DATA_KEY) as ARouterTestBean
+               getParcelable<ARouterTestBean>(ConstantUtil.MAIN_DATA_KEY) as ARouterTestBean
             with(data) {
                 Snackbar.make(vb!!.root, "我是$pName,现在$pAge,我是$pDesc", 1200).show()
+            }
             }
         }
     }
@@ -59,7 +61,8 @@ class MainActivity : AppCompatActivity(), MainAdapter.OnItemClickListener {
             3 -> AppUtils.turnToActivity(this, ArouterLearnActivity().javaClass)
             4 -> AppUtils.turnToActivity(this, EventBusLearnActivity().javaClass)
             5 -> ARouter.getInstance().build(ConstantUtil.KOIN_ACTIVITY_URI).navigation()
-           6 -> ARouter.getInstance().build(ConstantUtil.HILT_DAGGER_ACTIVITY_URI).navigation()
+            6 -> ARouter.getInstance().build(ConstantUtil.HILT_DAGGER_ACTIVITY_URI).navigation()
+            7-> ARouter.getInstance().build(ConstantUtil.ROOM_DATABASE_ACTIVITY_URI).navigation()
 
 
         }

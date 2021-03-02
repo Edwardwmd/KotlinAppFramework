@@ -1,6 +1,6 @@
 package com.edw.kotlinappframework.di.koin
 
-import com.edw.kotlinappframework.RetrofitClient
+import com.edw.kotlinappframework.net.RetrofitClient
 import com.edw.kotlinappframework.api.KoinStudyService
 import com.edw.kotlinappframework.api.imp.KoinStudyServiceImp
 import com.edw.kotlinappframework.bean.KoinStudyBeanA
