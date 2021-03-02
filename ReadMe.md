@@ -31,7 +31,7 @@
 
 2、项目演示：
 
-![](https://github.com/Edwardwmd/KotlinAppFramework/blob/master/Pic/inputbuttonview%20%E6%93%8D%E4%BD%9C%E7%A4%BA%E6%84%8F%E5%9B%BE.gif?raw=true)
+![](https://github.com/Edwardwmd/KotlinAppFramework/blob/master/Pic/kotlin%E7%8E%AF%E5%A2%83%E4%B8%8B%E5%AE%9E%E7%8E%B0%E6%A1%86%E6%9E%B6%E5%AD%A6%E4%B9%A0.gif?raw=true)
 
 未完待续.....
 
