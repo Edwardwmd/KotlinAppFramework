@@ -30,7 +30,6 @@ class RoomDataBaseLearnActivity : AppCompatActivity() {
             btnInsertAll.setOnClickListener {
                 insertMultiData()
             }
-
             btnUpdateData.setOnClickListener {
                 updateData()
             }
@@ -82,7 +81,7 @@ class RoomDataBaseLearnActivity : AppCompatActivity() {
                 loadThreadLog("查询刷新数据---->外")
                 val sb = StringBuilder()
                 it.forEach {
-                    sb.append(it.id).append(" ").append(it.name).append(" ").append(it.sex)
+                    sb.append(it.id).append(" ").append(it.name).append(" ").append(it.sex).append(" ").append(it.skill)
                         .append("\n")
                 }
                 withContext(Dispatchers.Main) {//切换主线程显示UI
@@ -102,10 +101,10 @@ class RoomDataBaseLearnActivity : AppCompatActivity() {
 
     private fun updateData() {
         job = lifecycleScope.launch(Dispatchers.IO) {
-            studentDao.updateData(2, "武松", "男")
-            studentDao.updateData(8, "扈三娘", "女")
-            studentDao.updateData(11, "姜子牙", "男")
-            studentDao.updateData(13, "妲己", "女")
+            studentDao.updateData(2, "武松", "男","力大无穷")
+            studentDao.updateData(8, "扈三娘", "女","彪悍")
+            studentDao.updateData(11, "姜子牙", "男","周易卜卦")
+            studentDao.updateData(13, "妲己", "女","迷惑")
             loadThreadLog("修改数据")
         }
     }

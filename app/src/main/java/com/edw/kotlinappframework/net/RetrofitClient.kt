@@ -35,10 +35,11 @@ class RetrofitClient private constructor() {
             .build()
     }
 
+    //使用Okhttp作为网络请求的内核
     private fun initClient(): OkHttpClient {
         return OkHttpClient
             .Builder()
-            .dns(ApiDns.genInstance("47.75.70.188",Api.PROVINCE_HOST))
+            .dns(ApiDns.genInstance("47.75.70.188", Api.PROVINCE_HOST))
             .addInterceptor(initInterceptor())
             .callTimeout(15, TimeUnit.SECONDS)
             .connectTimeout(15, TimeUnit.SECONDS)
@@ -47,11 +48,13 @@ class RetrofitClient private constructor() {
             .build()
     }
 
+    //添加拦截器
     private fun initInterceptor(): Interceptor {
         return HttpLoggingInterceptor().setLevel(HttpLoggingInterceptor.Level.BODY)
     }
 
-    fun <T>create(apiService: Class<T>):T{
+    //创建接口的服务
+    fun <T> create(apiService: Class<T>): T {
         return retrofit!!.create(apiService)
     }
 }

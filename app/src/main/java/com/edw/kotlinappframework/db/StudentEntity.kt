@@ -1,4 +1,4 @@
-package com.edw.rxroom
+package com.edw.kotlinappframework.db
 
 import androidx.room.ColumnInfo
 import androidx.room.Entity
@@ -17,6 +17,8 @@ data class StudentEntity(
     val name: String?,
     @ColumnInfo(name = "stu_sex")
     val sex: String?,
+    @ColumnInfo(name = "stu_skill")
+    val skill:String?,
     @PrimaryKey(autoGenerate = true)
     val id: Long = 0
 )

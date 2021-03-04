@@ -5,9 +5,9 @@ import com.edw.kotlinappframework.api.imp.KoinStudyServiceImp
 import com.edw.kotlinappframework.bean.KoinStudyBeanA
 import com.edw.kotlinappframework.bean.KoinStudyBeanB
 import com.edw.kotlinappframework.bean.KoinStudyBeanC
+import com.edw.kotlinappframework.db.StudentDB
 import com.edw.kotlinappframework.net.RetrofitClient
 import com.edw.kotlinappframework.ui.KoinLearnActivity
-import com.edw.rxroom.StudentDB
 import org.koin.dsl.bind
 import org.koin.dsl.module
 
@@ -25,7 +25,6 @@ class KoinModuleManager private constructor() {
             KoinModuleManager()
         }
     }
-
 
     //添加需要Koin依赖注入的对象,详情文档在@link https://insert-koin.io/
     //1.single:定义，创建一个在整个容器生命周期内都持续存在的对象（不能删除）。

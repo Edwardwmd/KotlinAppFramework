@@ -5,6 +5,7 @@ import androidx.room.Dao
 import androidx.room.Insert
 import androidx.room.OnConflictStrategy
 import androidx.room.Query
+import com.edw.kotlinappframework.db.StudentEntity
 
 
 /**
@@ -12,7 +13,7 @@ import androidx.room.Query
  * Data: 2021/3/3
  * Project: RxRoom
  * Website: https://github.com/Edwardwmd
- * Desc: File Information!
+ * 数据库操作接口,里面定义了增删改查的方法
  */
 @Dao
 interface StudentDAO {
@@ -29,8 +30,8 @@ interface StudentDAO {
     suspend fun deleteAll()
 
     //通过ID修改数据
-    @Query("UPDATE student_info SET stu_name=:name,stu_sex=:sex WHERE id=:id")
-    suspend fun updateData(id: Long, name: String, sex: String)
+    @Query("UPDATE student_info SET stu_name=:name,stu_sex=:sex,stu_skill=:skill WHERE id=:id")
+    suspend fun updateData(id: Long, name: String, sex: String,skill:String)
 
     //根据Id删除数据
     @Query("DELETE FROM STUDENT_INFO WHERE id=:id")

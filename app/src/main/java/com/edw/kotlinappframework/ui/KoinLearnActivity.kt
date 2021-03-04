@@ -130,8 +130,6 @@ class KoinLearnActivity : AppCompatActivity(), KoinScopeComponent {
             vb = null
         if (!scope.closed)
             scope.close()
-
-
     }
 
 
