@@ -4,7 +4,6 @@ import android.view.View
 import io.reactivex.rxjava3.core.Observable
 import io.reactivex.rxjava3.core.ObservableEmitter
 import io.reactivex.rxjava3.core.ObservableOnSubscribe
-import java.lang.NullPointerException
 
 /**
  * Author: EdwardWMD
@@ -37,4 +36,5 @@ object RxUtils {
         }
 
     }
+
 }

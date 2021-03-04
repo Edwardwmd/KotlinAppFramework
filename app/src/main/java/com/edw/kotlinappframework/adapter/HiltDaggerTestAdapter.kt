@@ -53,12 +53,12 @@ class HiltDaggerTestAdapter @Inject constructor() :
         holder: HiltDaggerViewHolder,
         position: Int
     ) {
-        hiltDaggerItems!![position].apply {
+        hiltDaggerItems[position].apply {
             holder.tvText.text = "今天学了$subject,学习到了第 $page 页,学习的内容是:$content."
         }
     }
 
     override fun getItemCount(): Int {
-        return hiltDaggerItems!!.run { if (isEmpty()) 0 else size }
+        return hiltDaggerItems.run { if (isEmpty()) 0 else size }
     }
 }

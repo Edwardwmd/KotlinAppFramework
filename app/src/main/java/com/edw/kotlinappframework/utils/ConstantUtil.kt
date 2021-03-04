@@ -22,13 +22,13 @@ object ConstantUtil {
         "https://www.niwoxuexi.com/statics/images/nougat_bg.png"
 
     //ARouter自定义路径
-    const val MAIN_ACTIVITY_URI = """/kotlinlearn/mainactivity"""
-    const val AROUTER_ACTIVITY_URI = """/kotlinlearn/arouteractivity"""
-    const val TEST_ACTIVITY_URI = """/kotlinlearn/testactivity"""
-    const val EVENTBUS_ACTIVITY_URI = """/kotlinlearn/eventbusactivity"""
-    const val KOIN_ACTIVITY_URI = """/kotlinlearn/koinactivity"""
-    const val HILT_DAGGER_ACTIVITY_URI = """/kotlinlearn/hiltdaggeractivity"""
-    const val ROOM_DATABASE_ACTIVITY_URI = """/kotlinlearn/roomdatabaseactivity"""
+    const val MAIN_ACTIVITY_URI = "/kotlinlearn/mainactivity"
+    const val AROUTER_ACTIVITY_URI = "/kotlinlearn/arouteractivity"
+    const val TEST_ACTIVITY_URI = "/kotlinlearn/testactivity"
+    const val EVENTBUS_ACTIVITY_URI = "/kotlinlearn/eventbusactivity"
+    const val KOIN_ACTIVITY_URI = "/kotlinlearn/koinactivity"
+    const val HILT_DAGGER_ACTIVITY_URI = "/kotlinlearn/hiltdaggeractivity"
+    const val ROOM_DATABASE_ACTIVITY_URI = "/kotlinlearn/roomdatabaseactivity"
 
     //Key
     const val MAIN_DATA_KEY="MainActivity_getData_key"

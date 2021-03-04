@@ -8,6 +8,7 @@ import org.koin.android.ext.koin.androidContext
 import org.koin.core.KoinApplication
 import org.koin.core.context.startKoin
 import javax.inject.Inject
+import kotlin.properties.Delegates
 
 /**
  * Author: EdwardWMD
@@ -21,9 +22,15 @@ class App @Inject constructor() : Application() {
     private val isDebug: Boolean = true
     private var koinApplication: KoinApplication? = null
 
+    companion object {
+        var mC: Application by Delegates.notNull()
+        fun appContext() = this.mC
+    }
+
 
     override fun onCreate() {
         super.onCreate()
+        mC = this
         //1.初始化ARouter
         initARouter()
         //初始化Koin依赖注入框架
@@ -35,10 +42,10 @@ class App @Inject constructor() : Application() {
             androidContext(this@App)
             modules(KoinModuleManager.instance.allAppMode)
         }
-        
+
     }
 
-    private  fun initARouter() {
+    private fun initARouter() {
         if (isDebug) {           // 这两行必须写在init之前，否则这些配置在init过程中将无效
             ARouter.openLog()     // 打印日志
             ARouter.openDebug()   // 开启调试模式(如果在InstantRun模式下运行，必须开启调试模式！线上版本需要关闭,否则有安全风险)

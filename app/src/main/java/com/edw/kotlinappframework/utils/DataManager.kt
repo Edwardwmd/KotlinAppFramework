@@ -3,6 +3,7 @@ package com.edw.kotlinappframework.utils
 import com.edw.kotlinappframework.adapter.HiltItem
 import com.edw.kotlinappframework.bean.ButtonData
 import com.edw.kotlinappframework.bean.GlideItem
+import com.edw.rxroom.StudentEntity
 
 /**
  * Author: EdwardWMD
@@ -53,5 +54,19 @@ object DataManager {
         HiltItem("英语", 114, "现在进行时的学习"),
         HiltItem("编程", 128, "Java面向对象思想"),
         HiltItem("编程", 187, "Kotlin的协程运用"),
+    )
+    val studentData = mutableListOf(
+        StudentEntity("张三丰", "男"),
+        StudentEntity("张无忌", "男"),
+        StudentEntity("赵敏", "女"),
+        StudentEntity("黄蓉", "女"),
+        StudentEntity("杨过", "男"),
+        StudentEntity("杨康", "男"),
+        StudentEntity("穆念慈", "女"),
+        StudentEntity("小昭", "女"),
+        StudentEntity("乔峰", "男"),
+        StudentEntity("段誉", "男"),
+        StudentEntity("虚竹", "男"),
+        StudentEntity("李秋水", "女")
     )
 }

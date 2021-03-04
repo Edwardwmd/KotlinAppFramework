@@ -7,14 +7,13 @@ import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.isVisible
 import com.alibaba.android.arouter.facade.annotation.Route
-import com.edw.kotlinappframework.net.RetrofitClient
 import com.edw.kotlinappframework.api.ProvinceApiService
 import com.edw.kotlinappframework.api.imp.KoinStudyServiceImp
 import com.edw.kotlinappframework.bean.KoinStudyBeanA
 import com.edw.kotlinappframework.bean.KoinStudyBeanB
 import com.edw.kotlinappframework.bean.KoinStudyBeanC
 import com.edw.kotlinappframework.databinding.ActivityKoinLearnBinding
-
+import com.edw.kotlinappframework.net.RetrofitClient
 import com.edw.kotlinappframework.utils.ConstantUtil
 import io.reactivex.rxjava3.android.schedulers.AndroidSchedulers
 import io.reactivex.rxjava3.core.Observable.intervalRange
@@ -42,20 +41,18 @@ class KoinLearnActivity : AppCompatActivity(), KoinScopeComponent {
     private val count = 5L
 
     //Koin单个参数依赖注入(single)
-    val koinStudyBeanA: KoinStudyBeanA by inject { parametersOf("学习Koin!!") }
+    private val koinStudyBeanA: KoinStudyBeanA by inject { parametersOf("学习Koin!!") }
 
     //Koin多个参数依赖注入(single)
-    val koinStudyBeanB: KoinStudyBeanB by inject { parametersOf("学习Koin依赖注入", 5) }
+    private val koinStudyBeanB: KoinStudyBeanB by inject { parametersOf("学习Koin依赖注入", 5) }
 
     //通过scope.inject多个参数依赖注入(scope)
-    val koinScropC: KoinStudyBeanC by scope.inject { parametersOf(num1, num2) }
+    private val koinScropC: KoinStudyBeanC by scope.inject { parametersOf(num1, num2) }
 
     //通过single bind实现依赖注入
     private val bindSingleApi: KoinStudyServiceImp by inject()
 
     private val client: RetrofitClient by inject()
-
-//    private val apiService:ProvinceApiService by inject { parametersOf(retrofit)  }
 
     @SuppressLint("SetTextI18n")
     override fun onCreate(savedInstanceState: Bundle?) {

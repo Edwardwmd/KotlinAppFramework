@@ -4,7 +4,6 @@ package com.edw.kotlinappframework.ui
 import android.annotation.SuppressLint
 import android.content.Intent
 import android.os.Bundle
-import android.os.Looper
 import android.view.View
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
@@ -17,6 +16,7 @@ import com.edw.kotlinappframework.api.VideoApiService
 import com.edw.kotlinappframework.databinding.ActivityRxjavaLearnBinding
 import com.edw.kotlinappframework.net.ApiDns
 import com.edw.kotlinappframework.ui.weight.GlideApp
+import com.edw.kotlinappframework.utils.AppUtils.isMainThread
 import com.edw.kotlinappframework.utils.RxUtils
 import com.google.android.material.snackbar.Snackbar
 import io.reactivex.rxjava3.android.schedulers.AndroidSchedulers
@@ -169,11 +169,6 @@ class RxjavaLearnActivity : AppCompatActivity() {
 
     }
 
-    /**
-     * 判断线程是否在主线程上
-     */
-    private fun isMainThread(): String =
-        if (Looper.getMainLooper().thread == Thread.currentThread()) "是" else "不是"
 
     override fun onDestroy() {
         super.onDestroy()

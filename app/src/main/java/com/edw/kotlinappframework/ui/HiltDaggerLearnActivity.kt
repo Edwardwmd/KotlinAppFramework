@@ -66,9 +66,9 @@ class HiltDaggerLearnActivity : AppCompatActivity() {
                 provinceApiService.getProvinces()
                     .subscribeOn(Schedulers.io())
                     .observeOn(AndroidSchedulers.mainThread())
-                    .doOnNext { it ->
+                    .doOnNext { it1 ->
                         val sb = StringBuilder()
-                        it?.onEach {
+                        it1?.onEach {
                             sb.append(" ").append(it.name)
                         }
                         tvShowHiltContent . text = sb . toString ()

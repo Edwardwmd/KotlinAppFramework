@@ -3,6 +3,7 @@ package com.edw.kotlinappframework.utils
 import android.app.Activity
 import android.content.Context
 import android.content.Intent
+import android.os.Looper
 
 /**
  * Author: EdwardWMD
@@ -19,4 +20,11 @@ object AppUtils {
         if (isFinish)
             (mC as Activity).finish()
     }
+
+    /**
+     * 判断线程是否在主线程上
+     */
+     fun isMainThread(): String =
+        if (Looper.getMainLooper().thread == Thread.currentThread()) "是" else "不是"
+
 }

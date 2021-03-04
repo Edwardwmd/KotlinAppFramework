@@ -1,12 +1,13 @@
 package com.edw.kotlinappframework.di.koin
 
-import com.edw.kotlinappframework.net.RetrofitClient
 import com.edw.kotlinappframework.api.KoinStudyService
 import com.edw.kotlinappframework.api.imp.KoinStudyServiceImp
 import com.edw.kotlinappframework.bean.KoinStudyBeanA
 import com.edw.kotlinappframework.bean.KoinStudyBeanB
 import com.edw.kotlinappframework.bean.KoinStudyBeanC
+import com.edw.kotlinappframework.net.RetrofitClient
 import com.edw.kotlinappframework.ui.KoinLearnActivity
+import com.edw.rxroom.StudentDB
 import org.koin.dsl.bind
 import org.koin.dsl.module
 
@@ -30,7 +31,7 @@ class KoinModuleManager private constructor() {
     //1.single:定义，创建一个在整个容器生命周期内都持续存在的对象（不能删除）。
     //2.factory:定义，每次创建一个新对象。短暂的。容器中没有持久性（无法共享）。
     //3.scoped 定义，创建一个持久关联到关联作用域生存期的对象。
-    val testMode = module {
+    private val testMode = module {
         //单个参数(单例模式)
         single { (content: String) -> KoinStudyBeanA(content) }
         //多个参数(单例模式)
@@ -48,12 +49,20 @@ class KoinModuleManager private constructor() {
 
     }
 
-    val netWorkMode = module {
+    //网络管理
+    private val netWorkMode = module {
         single { RetrofitClient.INSTANCE }
     }
 
+    //数据库管理
+    private val dbMode = module {
+        single { StudentDB.INSATANCE }
+        single { get<StudentDB>().getStudentDao() }
+    }
+
+
     //所有Module的集合
-    val allAppMode = listOf(testMode, netWorkMode)
+    val allAppMode = listOf(testMode, netWorkMode, dbMode)
 
 
 }

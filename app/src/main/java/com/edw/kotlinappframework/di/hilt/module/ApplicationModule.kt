@@ -73,4 +73,5 @@ object ApplicationModule {
         return retrofit.create(ProvinceApiService::class.java)
     }
 
+
 }
