@@ -29,6 +29,7 @@ object ConstantUtil {
     const val KOIN_ACTIVITY_URI = "/kotlinlearn/koinactivity"
     const val HILT_DAGGER_ACTIVITY_URI = "/kotlinlearn/hiltdaggeractivity"
     const val ROOM_DATABASE_ACTIVITY_URI = "/kotlinlearn/roomdatabaseactivity"
+    const val REALM_DATABASE_ACTIVITY_URI = "/kotlinlearn/realmdatabaseactivity"
 
     //Key
     const val MAIN_DATA_KEY="MainActivity_getData_key"

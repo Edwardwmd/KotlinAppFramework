@@ -1,11 +1,10 @@
-package com.edw.rxroom
+package com.edw.kotlinappframework.db.room
 
 import androidx.lifecycle.LiveData
 import androidx.room.Dao
 import androidx.room.Insert
 import androidx.room.OnConflictStrategy
 import androidx.room.Query
-import com.edw.kotlinappframework.db.StudentEntity
 
 
 /**
@@ -44,6 +43,4 @@ interface StudentDAO {
     //根据性别删除数据
     @Query("DELETE FROM STUDENT_INFO WHERE stu_sex=:sex")
     suspend fun deleteBySex(sex: String)
-
-
 }

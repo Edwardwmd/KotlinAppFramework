@@ -6,10 +6,10 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.lifecycleScope
 import com.alibaba.android.arouter.facade.annotation.Route
 import com.edw.kotlinappframework.databinding.ActivityRoomDataBaseLearnBinding
+import com.edw.kotlinappframework.db.room.StudentDAO
 import com.edw.kotlinappframework.utils.AppUtils.isMainThread
 import com.edw.kotlinappframework.utils.ConstantUtil.ROOM_DATABASE_ACTIVITY_URI
 import com.edw.kotlinappframework.utils.DataManager
-import com.edw.rxroom.StudentDAO
 import kotlinx.coroutines.*
 import org.koin.android.ext.android.inject
 

@@ -1,13 +1,17 @@
 package com.edw.kotlinappframework.di.koin
 
+import com.edw.kotlinappframework.adapter.RealmShowAdapter
 import com.edw.kotlinappframework.api.KoinStudyService
 import com.edw.kotlinappframework.api.imp.KoinStudyServiceImp
 import com.edw.kotlinappframework.bean.KoinStudyBeanA
 import com.edw.kotlinappframework.bean.KoinStudyBeanB
 import com.edw.kotlinappframework.bean.KoinStudyBeanC
-import com.edw.kotlinappframework.db.StudentDB
+import com.edw.kotlinappframework.db.realm.RealmManager
+import com.edw.kotlinappframework.db.room.StudentDB
 import com.edw.kotlinappframework.net.RetrofitClient
 import com.edw.kotlinappframework.ui.KoinLearnActivity
+import com.edw.kotlinappframework.ui.RealmDatabaseActivity
+import io.realm.RealmConfiguration
 import org.koin.dsl.bind
 import org.koin.dsl.module
 
@@ -53,15 +57,31 @@ class KoinModuleManager private constructor() {
         single { RetrofitClient.INSTANCE }
     }
 
-    //数据库管理
+    //Room数据库管理
     private val dbMode = module {
         single { StudentDB.INSATANCE }
         single { get<StudentDB>().getStudentDao() }
     }
 
+    //Realm数据库管理
+    private val realmMode = module {
+        scope<RealmDatabaseActivity> {
+            scoped {
+                RealmConfiguration.Builder().name("Cars.realm").schemaVersion(1).build()
+            }
+            scoped {
+                RealmManager(get())
+            }
+            scoped {
+                RealmShowAdapter()
+            }
+        }
+
+    }
+
 
     //所有Module的集合
-    val allAppMode = listOf(testMode, netWorkMode, dbMode)
+    val allAppMode = listOf(testMode, netWorkMode, dbMode, realmMode)
 
 
 }

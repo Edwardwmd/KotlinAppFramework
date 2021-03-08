@@ -1,4 +1,4 @@
-package com.edw.kotlinappframework.db
+package com.edw.kotlinappframework.db.room
 
 import androidx.room.Database
 import androidx.room.Room
@@ -6,7 +6,7 @@ import androidx.room.RoomDatabase
 import androidx.room.migration.Migration
 import androidx.sqlite.db.SupportSQLiteDatabase
 import com.edw.kotlinappframework.App
-import com.edw.rxroom.StudentDAO
+import com.edw.kotlinappframework.db.room.StudentDAO
 
 /**
  * Author: EdwardWMD

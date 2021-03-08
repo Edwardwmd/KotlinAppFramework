@@ -4,6 +4,7 @@ import android.app.Application
 import com.alibaba.android.arouter.launcher.ARouter
 import com.edw.kotlinappframework.di.koin.KoinModuleManager
 import dagger.hilt.android.HiltAndroidApp
+import io.realm.Realm
 import org.koin.android.ext.koin.androidContext
 import org.koin.core.KoinApplication
 import org.koin.core.context.startKoin
@@ -33,9 +34,12 @@ class App @Inject constructor() : Application() {
         mC = this
         //1.初始化ARouter
         initARouter()
+        //初始化Realm
+        Realm.init(this)
         //初始化Koin依赖注入框架
         initKoin()
     }
+
 
     private fun initKoin() {
         koinApplication = startKoin {

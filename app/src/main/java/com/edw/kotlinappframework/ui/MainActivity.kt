@@ -63,8 +63,7 @@ class MainActivity : AppCompatActivity(), MainAdapter.OnItemClickListener {
             5 -> ARouter.getInstance().build(ConstantUtil.KOIN_ACTIVITY_URI).navigation()
             6 -> ARouter.getInstance().build(ConstantUtil.HILT_DAGGER_ACTIVITY_URI).navigation()
             7 -> ARouter.getInstance().build(ConstantUtil.ROOM_DATABASE_ACTIVITY_URI).navigation()
-
-
+            8 -> ARouter.getInstance().build(ConstantUtil.REALM_DATABASE_ACTIVITY_URI).navigation()
         }
 
     }

@@ -1,4 +1,4 @@
-package com.edw.kotlinappframework.db
+package com.edw.kotlinappframework.db.room
 
 import androidx.room.ColumnInfo
 import androidx.room.Entity

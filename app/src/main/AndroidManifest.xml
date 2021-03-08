@@ -20,7 +20,8 @@
         android:theme="@style/Theme.KotlinUseDev"
         android:usesCleartextTraffic="true"
         tools:targetApi="m">
-        <activity android:name=".ui.RoomDataBaseLearnActivity"></activity>
+        <activity android:name=".ui.RealmDatabaseActivity"></activity>
+        <activity android:name=".ui.RoomDataBaseLearnActivity" />
         <activity android:name=".ui.HiltDaggerLearnActivity" />
         <activity android:name=".ui.KoinLearnActivity" />
         <activity
