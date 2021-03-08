@@ -4,7 +4,6 @@ import com.edw.kotlinappframework.adapter.HiltItem
 import com.edw.kotlinappframework.bean.ButtonData
 import com.edw.kotlinappframework.bean.GlideItem
 import com.edw.kotlinappframework.db.realm.Cars
-import com.edw.kotlinappframework.db.room.StudentEntity
 
 /**
  * Author: EdwardWMD
@@ -23,7 +22,8 @@ object DataManager {
         ButtonData("#FF34B3", "Koin依赖注入"),
         ButtonData("#ff6600", "Hilt Dagger依赖注入"),
         ButtonData("#cc6633", "Room数据库"),
-        ButtonData("#cc6633", "Realm数据库")
+        ButtonData("#cc6633", "Realm数据库"),
+        ButtonData("#cc6633", "Coil图片加载")
     )
     val glideItems = mutableListOf(
         GlideItem(ConstantUtil.PIC_URL, "标准模式"),
@@ -45,20 +45,20 @@ object DataManager {
         HiltItem("编程", 128, "Java面向对象思想"),
         HiltItem("编程", 187, "Kotlin的协程运用"),
     )
-    val studentData = mutableListOf(
-        StudentEntity("张三丰", "男", "太极拳"),
-        StudentEntity("张无忌", "男", "乾坤大挪移"),
-        StudentEntity("赵敏", "女", "无"),
-        StudentEntity("黄蓉", "女", "打狗棒法"),
-        StudentEntity("杨过", "男", "黯然销魂掌"),
-        StudentEntity("杨康", "男", "全真派心法"),
-        StudentEntity("穆念慈", "女", "无"),
-        StudentEntity("小昭", "女", "无"),
-        StudentEntity("乔峰", "男", "降龙十八掌"),
-        StudentEntity("段誉", "男", "凌波微步"),
-        StudentEntity("虚竹", "男", "小无相功"),
-        StudentEntity("李秋水", "女", "天山六阳掌")
-    )
+//    val studentData = mutableListOf(
+//        StudentEntity("张三丰", "男", "太极拳"),
+//        StudentEntity("张无忌", "男", "乾坤大挪移"),
+//        StudentEntity("赵敏", "女", "无"),
+//        StudentEntity("黄蓉", "女", "打狗棒法"),
+//        StudentEntity("杨过", "男", "黯然销魂掌"),
+//        StudentEntity("杨康", "男", "全真派心法"),
+//        StudentEntity("穆念慈", "女", "无"),
+//        StudentEntity("小昭", "女", "无"),
+//        StudentEntity("乔峰", "男", "降龙十八掌"),
+//        StudentEntity("段誉", "男", "凌波微步"),
+//        StudentEntity("虚竹", "男", "小无相功"),
+//        StudentEntity("李秋水", "女", "天山六阳掌")
+//    )
 
     val cars = mutableListOf(
         Cars("丰田", "卡罗拉", "紧凑型轿车", 4),

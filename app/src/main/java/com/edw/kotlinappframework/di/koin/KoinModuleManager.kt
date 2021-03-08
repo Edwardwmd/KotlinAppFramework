@@ -1,5 +1,11 @@
 package com.edw.kotlinappframework.di.koin
 
+import android.os.Build
+import coil.ImageLoader
+import coil.decode.GifDecoder
+import coil.decode.ImageDecoderDecoder
+import coil.decode.SvgDecoder
+import com.edw.kotlinappframework.App
 import com.edw.kotlinappframework.adapter.RealmShowAdapter
 import com.edw.kotlinappframework.api.KoinStudyService
 import com.edw.kotlinappframework.api.imp.KoinStudyServiceImp
@@ -7,8 +13,8 @@ import com.edw.kotlinappframework.bean.KoinStudyBeanA
 import com.edw.kotlinappframework.bean.KoinStudyBeanB
 import com.edw.kotlinappframework.bean.KoinStudyBeanC
 import com.edw.kotlinappframework.db.realm.RealmManager
-import com.edw.kotlinappframework.db.room.StudentDB
 import com.edw.kotlinappframework.net.RetrofitClient
+import com.edw.kotlinappframework.ui.CoilLoaderActivity
 import com.edw.kotlinappframework.ui.KoinLearnActivity
 import com.edw.kotlinappframework.ui.RealmDatabaseActivity
 import io.realm.RealmConfiguration
@@ -58,10 +64,10 @@ class KoinModuleManager private constructor() {
     }
 
     //Room数据库管理
-    private val dbMode = module {
-        single { StudentDB.INSATANCE }
-        single { get<StudentDB>().getStudentDao() }
-    }
+//    private val dbMode = module {
+//        single { StudentDB.INSATANCE }
+//        single { get<StudentDB>().getStudentDao() }
+//    }
 
     //Realm数据库管理
     private val realmMode = module {
@@ -79,9 +85,31 @@ class KoinModuleManager private constructor() {
 
     }
 
+    //使用Coil加载Gif,添加组件解码器,全局注册
+    private val imageLoaderMode = module {
+        scope<CoilLoaderActivity> {
+            scoped {
+                ImageLoader
+                    .Builder(App.appContext())
+                    .componentRegistry {
+                        //1.Gif解码器
+                        if (Build.VERSION.SDK_INT >= 28) {
+                            add(ImageDecoderDecoder())
+                        } else {
+                            add(GifDecoder())
+                        }
+                        //2.SVG解码器
+                        add(SvgDecoder(App.appContext()))
+                    }
+                    .build()
+            }
+        }
+
+    }
+
 
     //所有Module的集合
-    val allAppMode = listOf(testMode, netWorkMode, dbMode, realmMode)
+    val allAppMode = listOf(testMode, netWorkMode, realmMode, imageLoaderMode)
 
 
 }

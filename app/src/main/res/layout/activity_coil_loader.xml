@@ -1,0 +1,129 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ui.CoilLoaderActivity">
+
+    <ImageView
+        android:id="@+id/iv_coil_show"
+        android:layout_width="match_parent"
+        android:layout_marginStart="20dp"
+        android:layout_marginEnd="20dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginBottom="20dp"
+        android:layout_height="0dp"
+        android:contentDescription="使用Coil框架加载图片"
+        android:scaleType="centerCrop"
+        app:layout_constraintBottom_toTopOf="@+id/ly_constraint"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_weight="2" />
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/ly_constraint"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:background="@color/teal_700"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/iv_coil_show"
+        app:layout_constraintVertical_weight="1">
+
+        <Button
+            android:text="简单加载图片方式"
+            android:id="@+id/btn_normal_way_show"
+            android:layout_width="0dp"
+            android:layout_height="50dp"
+            android:layout_marginStart="20dp"
+            app:layout_constraintHorizontal_weight="1"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toLeftOf="@+id/btn_gif_show"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <Button
+            android:text="加载Gif图片方式"
+            android:id="@+id/btn_gif_show"
+            android:layout_width="0dp"
+            android:layout_height="50dp"
+            android:layout_marginEnd="20dp"
+            app:layout_constraintHorizontal_weight="1"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintLeft_toRightOf="@+id/btn_normal_way_show"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <Button
+            android:text="加载SVG图片方式"
+            android:id="@+id/btn_svg_show"
+            android:layout_width="0dp"
+            android:layout_height="50dp"
+            android:layout_marginStart="20dp"
+            app:layout_constraintHorizontal_weight="1"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toLeftOf="@+id/btn_gif_show"
+           app:layout_constraintTop_toBottomOf="@+id/btn_normal_way_show"/>
+
+        <Button
+            android:text="过渡显示图片方式"
+            android:id="@+id/btn_transition_show"
+            android:layout_width="0dp"
+            android:layout_height="50dp"
+            android:layout_marginEnd="20dp"
+            app:layout_constraintHorizontal_weight="1"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintLeft_toRightOf="@+id/btn_normal_way_show"
+            app:layout_constraintTop_toBottomOf="@+id/btn_normal_way_show"/>
+
+
+        <Button
+            android:text="模糊变换"
+            android:id="@+id/btn_blur_show"
+            android:layout_width="0dp"
+            android:layout_height="50dp"
+            android:layout_marginStart="20dp"
+            app:layout_constraintHorizontal_weight="1"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toLeftOf="@+id/btn_gif_show"
+            app:layout_constraintTop_toBottomOf="@+id/btn_svg_show"/>
+
+        <Button
+            android:text="圆形变换"
+            android:id="@+id/btn_circle_show"
+            android:layout_width="0dp"
+            android:layout_height="50dp"
+            android:layout_marginEnd="20dp"
+            app:layout_constraintHorizontal_weight="1"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintLeft_toRightOf="@+id/btn_normal_way_show"
+            app:layout_constraintTop_toBottomOf="@+id/btn_svg_show"/>
+
+
+        <Button
+            android:text="灰度变换"
+            android:id="@+id/btn_gray_show"
+            android:layout_width="0dp"
+            android:layout_height="50dp"
+            android:layout_marginStart="20dp"
+            app:layout_constraintHorizontal_weight="1"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toLeftOf="@+id/btn_gif_show"
+            app:layout_constraintTop_toBottomOf="@+id/btn_blur_show"/>
+
+        <Button
+            android:text="圆角变换"
+            android:id="@+id/btn_rounded_show"
+            android:layout_width="0dp"
+            android:layout_height="50dp"
+            android:layout_marginEnd="20dp"
+            app:layout_constraintHorizontal_weight="1"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintLeft_toRightOf="@+id/btn_normal_way_show"
+            app:layout_constraintTop_toBottomOf="@+id/btn_blur_show"/>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

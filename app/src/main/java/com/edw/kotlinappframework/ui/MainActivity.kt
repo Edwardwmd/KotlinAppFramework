@@ -64,6 +64,7 @@ class MainActivity : AppCompatActivity(), MainAdapter.OnItemClickListener {
             6 -> ARouter.getInstance().build(ConstantUtil.HILT_DAGGER_ACTIVITY_URI).navigation()
             7 -> ARouter.getInstance().build(ConstantUtil.ROOM_DATABASE_ACTIVITY_URI).navigation()
             8 -> ARouter.getInstance().build(ConstantUtil.REALM_DATABASE_ACTIVITY_URI).navigation()
+            9 -> ARouter.getInstance().build(ConstantUtil.COIL_LOADER_ACTIVITY_URI).navigation()
         }
 
     }

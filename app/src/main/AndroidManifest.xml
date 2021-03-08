@@ -15,15 +15,32 @@
         android:allowBackup="false"
         android:icon="@mipmap/logoko"
         android:label="@string/app_name"
+        android:networkSecurityConfig="@xml/network_security_config"
         android:roundIcon="@mipmap/logoko"
         android:supportsRtl="true"
         android:theme="@style/Theme.KotlinUseDev"
         android:usesCleartextTraffic="true"
-        tools:targetApi="m">
-        <activity android:name=".ui.RealmDatabaseActivity"></activity>
-        <activity android:name=".ui.RoomDataBaseLearnActivity" />
-        <activity android:name=".ui.HiltDaggerLearnActivity" />
-        <activity android:name=".ui.KoinLearnActivity" />
+        tools:targetApi="n">
+        <activity
+            android:name=".ui.CoilLoaderActivity"
+            android:launchMode="singleTask"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".ui.RealmDatabaseActivity"
+            android:launchMode="singleTask"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".ui.RoomDataBaseLearnActivity"
+            android:launchMode="singleTask"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".ui.HiltDaggerLearnActivity"
+            android:launchMode="singleTask"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".ui.KoinLearnActivity"
+            android:launchMode="singleTask"
+            android:screenOrientation="portrait" />
         <activity
             android:name=".ui.EventBusLearnActivity"
             android:launchMode="singleTask"
