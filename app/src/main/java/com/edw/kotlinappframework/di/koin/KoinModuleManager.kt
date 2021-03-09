@@ -13,6 +13,7 @@ import com.edw.kotlinappframework.bean.KoinStudyBeanA
 import com.edw.kotlinappframework.bean.KoinStudyBeanB
 import com.edw.kotlinappframework.bean.KoinStudyBeanC
 import com.edw.kotlinappframework.db.realm.RealmManager
+import com.edw.kotlinappframework.db.room.StudentDB
 import com.edw.kotlinappframework.net.RetrofitClient
 import com.edw.kotlinappframework.ui.CoilLoaderActivity
 import com.edw.kotlinappframework.ui.KoinLearnActivity
@@ -64,10 +65,10 @@ class KoinModuleManager private constructor() {
     }
 
     //Room数据库管理
-//    private val dbMode = module {
-//        single { StudentDB.INSATANCE }
-//        single { get<StudentDB>().getStudentDao() }
-//    }
+    private val roomMode = module {
+        single { StudentDB.INSATANCE }
+        single { get<StudentDB>().getStudentDao() }
+    }
 
     //Realm数据库管理
     private val realmMode = module {
@@ -109,7 +110,7 @@ class KoinModuleManager private constructor() {
 
 
     //所有Module的集合
-    val allAppMode = listOf(testMode, netWorkMode, realmMode, imageLoaderMode)
+    val allAppMode = listOf(testMode, netWorkMode, roomMode,realmMode, imageLoaderMode)
 
 
 }

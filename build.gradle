@@ -13,6 +13,7 @@ buildscript {
     ext.coil_version = "1.1.1"
 
     repositories {
+        maven { url 'https://maven.aliyun.com/repository/google' }
         google()
         jcenter()
         mavenCentral()
@@ -29,6 +30,7 @@ buildscript {
 
 allprojects {
     repositories {
+        maven { url 'https://maven.aliyun.com/repository/google' }
         google()
         jcenter()
         mavenCentral()
