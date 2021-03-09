@@ -26,7 +26,7 @@ class RealmShowAdapter : RecyclerView.Adapter<RealmShowAdapter.RealmViewHolder>(
     }
 
     fun setDatas(datas: MutableList<Cars>?) {
-        this.datas = datas!!
+        this.datas.addAll(datas!!)
         notifyDataSetChanged()
     }
 

@@ -45,6 +45,7 @@ class HiltDaggerLearnActivity : AppCompatActivity() {
         vb?.apply {
             setContentView(root)
             btnHiltAdapter.setOnClickListener {
+
                 recyHilt.visibility = View.VISIBLE
                 tvShowHiltContent.visibility = View.GONE
                 adapter.setData(DataManager.hiltDatas)
@@ -83,10 +84,9 @@ class HiltDaggerLearnActivity : AppCompatActivity() {
         }
     }
 
+
     override fun onDestroy() {
         super.onDestroy()
-        vb!!.recyHilt.visibility = View.GONE
-        vb!!.tvShowHiltContent.visibility = View.GONE
         adapter.cleanData()
         if (vb != null) vb = null
     }

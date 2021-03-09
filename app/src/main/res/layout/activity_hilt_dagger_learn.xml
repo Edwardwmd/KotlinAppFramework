@@ -6,54 +6,70 @@
     android:layout_height="match_parent"
     tools:context=".ui.HiltDaggerLearnActivity">
 
-    <Button
-        android:id="@+id/btn_hilt_adapter"
-        android:layout_width="160dp"
-        android:layout_height="80dp"
-        android:text="使用Hilt ActivityComponent依赖注入Adapter"
-        android:textAllCaps="false"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <Button
-        android:id="@+id/btn_hilt_application"
-        android:layout_width="160dp"
-        android:layout_height="80dp"
-        android:text="使用Hilt SingletonComponent全局依赖注入对象"
-        android:textAllCaps="false"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/btn_hilt_adapter" />
-    <Button
-        android:id="@+id/btn_hilt_rx_retrofit"
-        android:layout_width="160dp"
-        android:layout_height="80dp"
-        android:text="使用Hilt全局Retrofit依赖注入"
-        android:textAllCaps="false"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/btn_hilt_application" />
-
-    <TextView
-        android:id="@+id/tv_show_hilt_content"
+    <RelativeLayout
+        android:id="@+id/ly_Relative"
         android:layout_width="match_parent"
-        android:layout_height="250dp"
-        android:layout_marginTop="15dp"
-        android:visibility="gone"
+        android:layout_height="0dp"
+        app:layout_constraintBottom_toTopOf="@+id/lv_constrant"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/btn_hilt_rx_retrofit" />
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_weight="2">
 
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/recy_hilt"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:visibility="gone" />
 
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/recy_hilt"
+        <TextView
+            android:id="@+id/tv_show_hilt_content"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:gravity="center"
+            android:visibility="visible" />
+    </RelativeLayout>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/lv_constrant"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_marginTop="91dp"
-        android:visibility="gone"
+        android:layout_height="0dp"
+        android:background="@color/teal_700"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/btn_hilt_rx_retrofit" />
+        app:layout_constraintTop_toBottomOf="@+id/ly_Relative"
+        app:layout_constraintVertical_weight="1">
+
+        <Button
+            android:id="@+id/btn_hilt_adapter"
+            android:layout_width="160dp"
+            android:layout_height="80dp"
+            android:text="使用Hilt ActivityComponent依赖注入Adapter"
+            android:textAllCaps="false"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <Button
+            android:id="@+id/btn_hilt_application"
+            android:layout_width="160dp"
+            android:layout_height="80dp"
+            android:text="使用Hilt SingletonComponent全局依赖注入对象"
+            android:textAllCaps="false"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/btn_hilt_adapter" />
+
+        <Button
+            android:id="@+id/btn_hilt_rx_retrofit"
+            android:layout_width="160dp"
+            android:layout_height="80dp"
+            android:text="使用Hilt全局Retrofit依赖注入"
+            android:textAllCaps="false"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/btn_hilt_application" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

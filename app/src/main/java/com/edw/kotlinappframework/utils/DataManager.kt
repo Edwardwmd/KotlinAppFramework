@@ -1,6 +1,6 @@
 package com.edw.kotlinappframework.utils
 
-import com.edw.kotlinappframework.adapter.HiltItem
+import com.edw.kotlinappframework.bean.HiltItem
 import com.edw.kotlinappframework.bean.ButtonData
 import com.edw.kotlinappframework.bean.GlideItem
 import com.edw.kotlinappframework.db.realm.Cars
